@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WithBgm : Title</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e6f1ff;
+    }
+    button:hover { /*pseudo-class 2번*/
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+
+    nav {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    body>header>img { /*combinator 5번*/
+      width: 90%; /* 입력 창과 동일한 퍼센트로 이미지의 가로 너비 설정 */
+      max-width: 300px; /* 이미지의 최대 가로 너비 설정 */
+      padding: 5px;
+    }
+    
+    nav {
+      background-color: #333;
+      text-align: right;
+    }
+    
+    #login {
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    
+    header {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 210px); /* 화면 아래에 footer 고려하여 조절 */
+    }
+    
+    form {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    #search-input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      
+      background-color: #fff;
+      caret-color: #000; /* 텍스트 입력 시 배경색을 흰색으로 유지 */
+      
+    }
+    
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    footer {
+      background-color: #e6f1ff32;
+      font-size: 8px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    
+     footer p { /* descendant combinator : combinator1  */
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <!--nav,header,footer가 한곳에 있습니다-->
+  <nav>
+    <button id="login">login</button>
+  </nav>
+  
+  <header>
+    <img src="logo.png" alt="withbgm" id="logo">
+    <form action="bookcollect.html" method="GET">
+      <!--첫번째, 두번째 type의 input-->
+      <input type="text" id="search-input" name="book-title" placeholder="책 제목을 입력하세요">
+      <input type="submit" value="검색">
+    </form>
+  </header>
+  
+  <footer>
+    <p>이메일: gp4077@pusan.ac.kr</p>
+    <p>주소: 부산광역시 금정구 부산대학로 63번길 2</p>
+    <p>전화번호: 051-1111-1111</p>
+  </footer>
+  
+  <script>
+    
+
+    // login 버튼 클릭 이벤트 처리
+    const loginButton = document.getElementById('login');
+    loginButton.addEventListener('click', function() {
+      window.location.href = 'login.html';
+    });
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var loginSuccess = urlParams.get('login-success');
+    
+    // dom을 이용해 html element 바꾼 것 1
+    if (loginSuccess === "true") {
+        loginButton.textContent = "환영합니다!";
+    }
+  </script>
+</body>
+</html>

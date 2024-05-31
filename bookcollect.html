@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WithBgm : Book Collect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #c4dcfdc6;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    #seolmeong{
+      font-size : 20px;
+    }
+
+    #logo {
+      width: 150px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    #results {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    #pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #current-page {
+      font-size: 16px;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    button {
+      background-color: rgba(245, 239, 220, 0.519);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+
+      box-shadow: 0px 2px 4px rgba(0, 123, 255, 0.3); /* 푸른색 그림자 설정 */
+    }
+    button:hover {
+      box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.5);
+    }
+   
+
+  </style>
+
+</head>
+
+<body>
+  <header>
+    
+    <!-- <main>
+      <input type="text" id="search-input" name="book-title" placeholder="검색한 책 제목">
+      <button id="target">검색</button>
+    </main> -->
+    <img src="whitelogo.png" alt="사진을 누르면 원래대로 돌아갑니다." id="logo">
+  </header>
+
+
+  <main>
+    <h1 id = "seolmeong"> : 상위 10개의 검색결과가 노출됩니다. </h1>
+    <p id = "seolmenog2">찾는 책을 선택해주십시오</p>
+    <div id="results">
+      <!-- 검색된 책들의 목록이 여기에 동적으로 추가될 예정입니다. -->
+
+    </div>
+    <div id="pagination">
+      <span id="current-page">페이지: 1</span>
+      <!-- 페이지가 많을 경우 동적으로 추가될 예정입니다. -->
+    </div>
+  </main>
+
+  <footer>
+    <p>이메일: gp4077@pusan.ac.kr</p>
+    <p>주소: 부산광역시 금정구 부산대학로 63번길 2</p>
+    <p>전화번호: 051-1111-1111</p>
+  </footer>
+
+    <script type="text/javascript" src="script1.js"></script>
+
+</body>
+
+</html>

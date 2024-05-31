@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>withbgm : playlist</title>
+  <style>
+    /* 공통 스타일 */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #e6f1ff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      padding: 20px;
+      background-color: #333;
+    }
+    
+    header > img { /* descendant combinator : combinator2  */
+      width: 200px;
+    }
+    
+    h1 {
+      margin-top: 30px;
+      color: #333333;
+    }
+    
+    main{
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: beige;
+    }
+
+    input {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+    button:hover { /*pseudo-class 1번*/
+      background-color: #0056b3;
+    }
+    
+    #resultsContainer {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    #container::first-line { color: #000988; font-size: 1.5em; }
+    /*pseudo element 2번*/
+
+    #choice {
+      background-color: #b5bfe3;
+    }
+    
+    h3 {
+      margin-top: 30px;
+      color: #333333;
+    }
+    
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    label {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    
+    button[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    
+    footer {
+      padding: 20px;
+      background-color: #f2f2f2;
+      color: #666666;
+    }
+    
+    footer p { /* descendant combinator : combinator3  */
+      margin: 5px 0;
+    }
+
+    main{
+        background-color: beige;
+        padding: 20px;
+    }
+    
+    div > form { /* descendant combinator : combinator4  */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #satisfaction-form label{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    #resultsContainer{
+        width: 380px;
+        height: 300px;
+        position: relative;
+        margin: auto;
+        padding: 5px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        background-color: #fff;
+    }
+    /*float와 clear*/
+    .satisclass{
+      float: left;
+      clear: both;
+    }
+    #enjoybookwithplaylist h1 {
+    position: relative;
+    }
+
+#enjoybookwithplaylist h1::before { /*pseudo element 1번*/
+  content: "";
+  position: absolute;
+  top: -15%;
+  transform: translateY(-50%);
+  height: 1px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: gray;
+
+}
+
+
+
+  </style>
+  
+</head>
+<body>
+  <header>
+    <img src="whitelogo.png" alt="withbgm" id="logo">
+  </header>
+
+
+  <main id="thebookyouchose">
+    <h1>The Book You Chose</h1>
+    <div id="container"></div>
+    <br>
+    <button id="searchButton">Search</button>
+  </main>
+  
+  <div id="enjoybookwithplaylist">
+  <h1>Enjoy book with playlist</h1>
+  <div id ="resultsContainer"></div>
+  </div>
+
+ 
+  <div>   
+    <h3>검색 결과에 만족하셨습니까?</h3>
+    <form id="satisfaction-form">
+      <div class = "satisclass">
+      <label> <!--3번째 type의 input-->
+        <input type="radio" name="satisfaction" value="yes" required> 예
+      </label>
+      <label id="floating">
+        <input type="radio" name="satisfaction" value="no" required> 아니오
+      </label>
+      
+    </div>
+    <button type="submit">제출</button>
+    </form>
+   </div>
+
+  <footer>
+    <p>이메일: gp4077@pusan.ac.kr</p>
+    <p>주소: 부산광역시 금정구 부산대학로 63번길 2</p>
+    <p>전화번호: 051-1111-1111</p>
+  </footer>
+
+  <script type="text/javascript" src="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & Register</title>
+   
+ <style>
+    * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+        
+        
+        [class="wrap"] { /* attribute selector 1 */
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: scale(1.2);
+            background-color: #c4dcfdc6;
+
+        }
+            [class="form-wrap"]{ /* attribute selector 2 */
+            width: 380px;
+            height: 480px;
+            position: relative;
+            margin: auto;
+            box-shadow: 0 0 10px 2px #8fbcfc;
+            padding: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background-color: #fff;
+
+        }
+        .form-wrap.slide-in {
+            transform: translateX(100%);
+        }
+        .form-wrap.slide-out {
+            transform: translateX(-100%);
+        }
+        .button-wrap {
+            width: 230px;
+            margin: 35px auto;
+            position: relative;
+            top: 80px;
+            border-radius: 30px;
+
+        }
+        .togglebtn {
+            padding: 10px 30px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .togglebtn:hover { /*pseudo class 1번*/
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        #btn {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: linear-gradient(to right, #ff9ebe11, #3ce5ff);
+            border-radius: 30px;
+            transition: .5s;
+            transform-origin: center;
+        }
+        .social-icons {
+
+            margin: 30px auto;
+            text-align: center;
+            margin-top: -80px;
+        }
+        .social-icons img {
+            width: 300px ;
+            cursor: pointer;
+        }
+        .input-group {
+            top: 180px;
+            position: absolute;
+            width: 280px;
+            transition: .5s;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px 0;
+            margin: 5px 0;
+            outline: none;
+            background: transparent;
+            border: 1px solid #ccc;
+        }
+        .submit {
+            width: 85%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            background: #007bff;
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+            transition: transform 0.3s, background-color 0.3s, opacity 0.3s;
+            color: #fff;
+            
+        }
+        .submit:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        .checkbox {
+            margin: 30px 10px 30px 0;
+        }
+        span {
+            font-size: 12px;
+            bottom: 68px;
+            position: absolute;
+        }
+        #login-form {
+            left: 50px;
+            
+        }
+        #register-form {
+            left: 450px;
+
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) { 
+            .form-wrap {
+                width: 320px;
+                height: 480px;
+            }
+            .button-wrap {
+                width: 200px;
+            }
+            .togglebtn {
+                padding: 8px 20px;
+                color: #fff;
+
+            }
+            .social-icons img { /* descendant combinator : combinator3  */
+                width: 250px;
+            }
+            .input-group {
+                width: 240px;
+            }
+            .submit {
+                width: 75%;
+                padding: 10px 25px;
+            }
+        }
+
+        @media (max-width: 900px) { /* media query 사용*/
+            .form-wrap {
+                width: 280px;
+                height: 480px;
+            }
+            .button-wrap {
+                width: 180px;
+            }
+            .togglebtn {
+                padding: 8px 15px;
+            }
+            .social-icons img {
+                width: 200px;
+            }
+            .input-group {
+                width: 200px;
+            }
+            .submit {
+                width: 70%;
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+ </style>
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="form-wrap">
+            <div class="button-wrap">
+                <div id="btn"></div>
+                <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
+                <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
+            </div>
+            <div class="social-icons">
+                <img src="logo.png" alt="LOGO">
+            </div>
+            <form id="login-form" action="main.html" class="input-group">
+                <input type="text" id="login-username" class="input-field" placeholder=" User name or Email" required>
+                <input type="password" id="login-password" class="input-field" placeholder=" Enter Password" required>
+                <input type="checkbox" id="login-remember" class="checkbox"><span>Remember Password</span>
+                <button class="submit" id="login-submitButton" disabled>Login</button>
+            </form>
+            <form id="register-form" action="main.html" class="input-group">
+                <input type="text" id="register-username" class="input-field" placeholder=" User name or Email" required>
+                <input type="password" id="register-password" class="input-field" placeholder=" Enter Password" required>
+                <input type="password" id="register-re-password" class="input-field" placeholder=" Re-enter Password" required>
+                <input type="checkbox" id="register-remember" class="checkbox" required>
+                <span>Terms and conditions</span>
+                <button class="submit" id="register-submitButton" disabled>REGISTER</button>
+            </form>
+        </div>
+    </div>
+
+
+    
+    <script>
+        //dom을 이용해 css 바꾼거 2,3
+        var x = document.getElementById("login-form");
+        var y = document.getElementById("register-form");
+        var z = document.getElementById("btn");
+
+        function login() {
+            x.classList.remove("slide-out");
+            y.classList.remove("slide-in");
+            x.classList.add("slide-in");
+            y.classList.add("slide-out");
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+            z.style.transform = "scale(0.7)"; // 버튼 축소
+            setTimeout(function() {
+                z.style.transform = "scale(1)"; // 버튼 복원
+            }, 300);
+        }
+        
+    //dom을 이용해 css 바꾼거 4,5
+        function register(){
+            x.classList.remove("slide-in");
+            y.classList.remove("slide-out");
+            x.classList.add("slide-out");
+            y.classList.add("slide-in");
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            z.style.transform = "scale(0.7)"; // 버튼 축소
+            setTimeout(function() {
+                z.style.transform = "scale(1)"; // 버튼 복원
+            }, 300);
+
+        }
+
+        var loginUsernameInput = document.getElementById("login-username");
+        var loginPasswordInput = document.getElementById("login-password");
+        var loginSubmitButton = document.getElementById("login-submitButton");
+
+        // 회원가입 폼 요소들
+        var registerUsernameInput = document.getElementById("register-username");
+        var registerPasswordInput = document.getElementById("register-password");
+        var registerRePasswordInput = document.getElementById("register-re-password");
+        var registerRememberCheckbox = document.getElementById("register-remember");
+        var registerSubmitButton = document.getElementById("register-submitButton");
+
+        // 로그인 폼 입력값 검사 함수
+        function checkLoginInputs() {
+            var usernameValue = loginUsernameInput.value.trim();
+            var passwordValue = loginPasswordInput.value.trim();
+
+            if (usernameValue !== "" && passwordValue !== "") {
+                loginSubmitButton.disabled = false;
+            } else {
+                loginSubmitButton.disabled = true;
+            }
+        }
+
+        // 회원가입 폼 입력값 검사 함수
+        function checkRegisterInputs() {
+            var usernameValue = registerUsernameInput.value.trim();
+            var passwordValue = registerPasswordInput.value.trim();
+            var rePasswordValue = registerRePasswordInput.value.trim();
+
+            if (usernameValue !== "" && passwordValue !== "" && rePasswordValue !== "") {
+                if (registerRememberCheckbox.checked) {
+                    registerSubmitButton.disabled = false;
+                } else {
+                    registerSubmitButton.disabled = true;
+                }
+            } else {
+                registerSubmitButton.disabled = true;
+
+            }
+        }
+
+        // 로그인 폼 제출 처리 함수
+        function handleLoginSubmit(event) {
+            event.preventDefault(); // 폼 제출 방지
+
+            var usernameValue = loginUsernameInput.value.trim();
+            var passwordValue = loginPasswordInput.value.trim();
+
+            if (usernameValue === "" || passwordValue === "") {
+                alert("모든 필드를 입력해주세요.");
+                return;
+            }
+            var url = "main.html?login-success=true";
+            window.location.href = url;     
+
+        }
+
+        // 회원가입 폼 제출 처리 함수
+        function handleRegisterSubmit(event) {
+            event.preventDefault(); // 폼 제출 방지
+
+            var usernameValue = registerUsernameInput.value.trim();
+            var passwordValue = registerPasswordInput.value.trim();
+            var rePasswordValue = registerRePasswordInput.value.trim();
+
+            if (usernameValue === "" || passwordValue === "" || rePasswordValue === "") {
+                alert("모든 필드를 입력해주세요.");
+                return;
+            } else if (passwordValue !== rePasswordValue) {
+                alert("비밀번호가 일치하지 않습니다.");
+                return;
+            }
+            
+                // 회원가입 처리 로직을 여기에 추가할 수 있습니다. 예를 들어, AJAX 요청을 보내거나 다른 페이지로 리디렉션할 수 있습니다.
+            alert("회원가입이 완료되었습니다!");
+            var url = "main.html?login-success=true";
+            window.location.href = url;     
+
+          
+            
+        }
+
+        // 이벤트 리스너 등록
+        loginUsernameInput.addEventListener("input", checkLoginInputs);
+        loginPasswordInput.addEventListener("input", checkLoginInputs);
+        loginSubmitButton.addEventListener("click", handleLoginSubmit);
+
+        registerUsernameInput.addEventListener("input", checkRegisterInputs);
+        registerPasswordInput.addEventListener("input", checkRegisterInputs);
+        registerRePasswordInput.addEventListener("input", checkRegisterInputs);
+        registerRememberCheckbox.addEventListener("change", checkRegisterInputs);
+        registerSubmitButton.addEventListener("click", handleRegisterSubmit);
+    </script>
